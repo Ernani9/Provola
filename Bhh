@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Sostenibilità</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .answers {
+            font-size: 20px;
+        }
+        .answer {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Domanda del Quiz</h1>
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+
+    <script>
+        const quiz = [
+            {
+                question: "Dove va buttata l'etichetta del sint-carta gialla?",
+                answers: [
+                    "Indifferenziata",
+                    "Carta",
+                    "Plastica"
+                ]
+            },
+            {
+                question: "I tre pilastri dello sviluppo sostenibile sono:",
+                answers: [
+                    "La condivisione, la pace, la società",
+                    "Ambiente, clima, circolarità",
+                    "La società, l'economia, l'ambiente"
+                ]
+            },
+            {
+                question: "Quali sono le tre tipologie di etichette che possiamo trovare su un capo JOIN LIFE?",
+                answers: [
+                    "Care for Fiber, Care for Planet, Car for People",
+                    "Care for Fiber, Care for Water, Care for Planet",
+                    "Care for Social, Care for Earth, Care for Materials"
+                ]
+            },
+            {
+                question: "Quale fibra tessile sintetica utilizza Zara che è ottenuta riciclando una bottiglia Pet?",
+                answers: [
+                    "Poliestere riciclato",
+                    "Tenceltm Lyocell",
+                    "Modal"
+                ]
+            },
+            {
+                question: "Quale modello economico sta proponendo il Parlamento Europeo?",
+                answers: [
+                    "Economia Lineare: Materie Prime > Produzione > Uso > Rifiuti non Riciclabili",
+                    "Economia Del Riuso: Materie Prime > Produzione > Riciclo > Uso > Rifiuti non Riciclabili",
+                    "Economia Circolare: Materie Prime > Riciclo > Produzione > Uso"
+                ]
+            },
+            {
+                question: "Cos'è l'overshoot day?",
+                answers: [
+                    "Giornata in cui il consumo di risorse supera la capacità della Terra di rigenerarle",
+                    "Giornata dedicata alla sensibilizzazione sul risparmio energetico",
+                    "Giornata mondiale del riciclaggio"
+                ]
+            },
+            {
+                question: "Cosa si intende per inquinamento digitale?",
+                answers: [
+                    "L'accumulo di dispositivi elettronici dismessi nelle discariche",
+                    "L'insieme di danni causati dall'utilizzo di tecnologie digitali",
+                    "L'uso eccessivo di Wi-Fi"
+                ]
+            },
+            {
+                question: "Come possiamo fare per consumare in modo responsabile?",
+                answers: [
+                    "Rinnovare l'intero guardaroba ogni cambio di stagione",
+                    "Riparare dispositivi che non funzionano più",
+                    "Gettare via tutti gli oggetti non più in uso nella spazzatura"
+                ]
+            },
+            {
+                question: "Come si può variare le proprie abitudini alimentari per essere più sostenibili?",
+                answers: [
+                    "Aumentando il consumo di carne e pesce per il fabbisogno giornaliero di proteine",
+                    "Comprare grandi quantità nei GDO per riempire la dispensa",
+                    "Prediligere prodotti locali biologici prevalentemente vegetali e di stagione"
+                ]
+            }
+        ];
+
+        function getRandomQuiz() {
+            const randomIndex = Math.floor(Math.random() * quiz.length);
+            return quiz[randomIndex];
+        }
+
+        function displayQuiz() {
+            const selectedQuiz = getRandomQuiz();
+            document.getElementById("question").innerText = selectedQuiz.question;
+            const answersDiv = document.getElementById("answers");
+            answersDiv.innerHTML = ""; // pulisce le risposte precedenti
+
+            selectedQuiz.answers.forEach(answer => {
+                const answerElement = document.createElement("div");
+                answerElement.className = "answer";
+                answerElement.innerText = answer;
+                answersDiv.appendChild(answerElement);
+            });
+        }
+
+        displayQuiz();
+    </script>
+
+</body>
+</html>
